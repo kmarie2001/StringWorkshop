@@ -12,7 +12,7 @@ public class StringWorkshop {
 
 
         boolean optionChoice = true;
-        while(optionChoice) {
+        while (optionChoice) {
 
             System.out.println("Pick an option: ");
             System.out.println("(1)Add content ");
@@ -31,31 +31,25 @@ public class StringWorkshop {
                 currentString = addContent(startingString);
                 System.out.println("Current string: " + currentString);
                 startingString = currentString;
-            }
-            else if (inputOptionChoice == 2) {
+            } else if (inputOptionChoice == 2) {
 
-                System.out.println(checkSubstring (startingString));
-            }
-            else if (inputOptionChoice == 3) {
+                System.out.println(checkSubstring(startingString));
+            } else if (inputOptionChoice == 3) {
 
-                System.out.println("The length of your string is: " + checkLength (startingString));
+                System.out.println("The length of your string is: " + checkLength(startingString));
 
-            }
-            else if (inputOptionChoice == 4) {
+            } else if (inputOptionChoice == 4) {
 
-                System.out.println("Substring: " + substringPrefix (startingString));
+                System.out.println("Substring: " + substringPrefix(startingString));
 
-            }
-            else if (inputOptionChoice == 5) {
+            } else if (inputOptionChoice == 5) {
 
-                System.out.println("Substring: " + substringSuffix (startingString));
+                System.out.println("Substring: " + substringSuffix(startingString));
 
-            }
-            else if (inputOptionChoice == 6) {
+            } else if (inputOptionChoice == 6) {
 
-                System.out.println("Substring: " + substringPrefixAndSuffix (startingString));
-            }
-            else if (inputOptionChoice == 7) {
+                System.out.println("Substring: " + substringPrefixAndSuffix(startingString));
+            } else if (inputOptionChoice == 7) {
 
                 System.out.println("Have a nice day!");
                 break;
@@ -64,7 +58,7 @@ public class StringWorkshop {
 
     }
 
-    public static String addContent (String startingString) {
+    public static String addContent(String startingString) {
 
         Scanner string = new Scanner(System.in);
 
@@ -73,25 +67,27 @@ public class StringWorkshop {
 
         return startingString + addString;
     }
-    public static String checkSubstring (String startingString){
+
+    public static String checkSubstring(String startingString) {
 
         Scanner string = new Scanner(System.in);
 
         System.out.println("Enter a substring you would like to check within your string: ");
         String substring = string.nextLine();
 
-        if (startingString.contains(substring)){
+        if (startingString.contains(substring)) {
             return ("This is a substring within you string.");
-        }
-        else{
+        } else {
             return ("This is not a substring within your string.");
         }
     }
-    public static int checkLength (String string){
+
+    public static int checkLength(String string) {
 
         return string.length();
     }
-    public static String substringPrefix (String startingString){
+
+    public static String substringPrefix(String startingString) {
 
         Scanner string = new Scanner(System.in);
 
@@ -99,11 +95,13 @@ public class StringWorkshop {
         String prefix = string.nextLine();
 
         int index = startingString.indexOf(prefix);
+        int excludePrefix = index + prefix.length();
 
-        return startingString.substring(index);
+        return startingString.substring(excludePrefix);
 
     }
-    public static String substringSuffix (String startingString){
+
+    public static String substringSuffix(String startingString) {
 
         Scanner string = new Scanner(System.in);
 
@@ -112,9 +110,10 @@ public class StringWorkshop {
 
         int index = startingString.indexOf(suffix);
 
-        return startingString.substring(0, index + suffix.length());
+        return startingString.substring(0, index);
     }
-    public static String substringPrefixAndSuffix (String startingString){
+
+    public static String substringPrefixAndSuffix(String startingString) {
 
         Scanner string = new Scanner(System.in);
 
@@ -125,8 +124,8 @@ public class StringWorkshop {
         String suffix = string.nextLine();
 
         int index1 = startingString.indexOf(prefix);
+        int excludePrefix = index1 + prefix.length();
         int index2 = startingString.indexOf(suffix);
-
-        return startingString.substring(index1, index2 + suffix.length());
+        return startingString.substring(excludePrefix, index2);
     }
 }
